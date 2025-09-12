@@ -1,6 +1,6 @@
 # CMPS 6610 Problem Set 02
 
-**Name:**_________________________
+**Name:**_ Aaron Dumont________________________
 
 In this assignment we'll work on applying the methods we've learned to
 analyze recurrences, and also see their behavior in practice. As with
@@ -12,12 +12,59 @@ to a file named `answers.pdf`.
 
 1. Prove that $\log n! \in \Theta(n \log n).$
 
-.  
-.  
-.  
-.  
-.  
- 
+We must show that $log(n!)$ is bounded above and below by a constant multiple of $nlogn$ for sufficiently large $n$.
+
+$(n!)$ = $n$ * $(n-1)$ * $(n-2)$ *...* $2$ * $1$
+
+$log(n!)$ = $log$($n$ * $(n-1)$ * $(n-2)$ *...* $2$ * $1$)
+
+$log(n!)$ = $log(n)$ + $log(n-1)$ + $log(n-2)$ +...+ $log2$ + $log1$
+
+or rearranging: $log(n!)$ = $log1$ + $log2$ +...+$log(n-2)$ + $log(n-1)$ + $log(n)$
+
+This can be expressed as a summation:
+$$
+log(n!) = \sum_{i=1}^{n} log(i)
+$$
+
+1. Proof of the Upper Bound: $log(n!) \in O(nlogn)$
+
+We must prove $log(n!) \le c * nlogn$ for some constant $c > 0$ and for all $n \ge n_0$
+
+Looking at the summation above, each term $log(i)$ is $\le$ the largest term which is $log(n)$
+
+ie. $log(i) \le log(n)$ for all $i$ from 1 to $n$. Hence, we can establish an upper bound by replacing every term in the sum with $log(n)$:
+$$
+\sum_{i=1}^{n} log(i) \le \sum_{i=1}^{n} log(n)
+$$
+Note: The summation below is the same as adding $log(n) to itself $n$ times and hence = $nlogn$
+$$
+\sum_{i=1}^{n} log(n)
+$$
+
+Therefore we have: $log(n!) \le nlogn$. This fits the definition of Big-O with $c=1$ and $n_0=1$ which therefore proves $log(n!) \in O(nlogn)$.
+
+2. Proof of the Lower Bound: $log(n!) \in \Omega(nlogn)$
+
+We must prove $log(n!) \ge c * nlogn$ for some constant $c > 0$ and for all $n \ge n_0$.
+
+$$
+log(n!) = \sum_{i=1}^{n} log(i) = log(1) + ... +log(n/2) +...+ log(n)
+$$
+
+The first half of the terms (from $i=1$ to $i=n/2$) is smaller than the second half. To find the lower bound, we can ignore the first half of the terms.
+
+$$
+\sum_{i=1}^{n} log(i) \ge \sum_{i=n/2}^{n} log(n)
+$$
+
+The smallest value on the right will be $log(n/2)$.
+
+$log(i) \ge log(n/2)$ for all $i$ from $n/2$ to $n$.
+
+Moreover, the the number of terms in the sum from $i=n/2$ to $n$ is ($n-n/2$) + $1$ = $n/2 + 1$ which is greater than $n/2$.
+
+
  
 2. Derive asymptotic upper bounds for each recurrence below, using a
    method of your choice.

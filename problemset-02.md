@@ -306,6 +306,13 @@ Span: The two subproblems will run in parallel but the longest path will be dete
 
 Hence: $S_C(n) = S_c(2n/3) + n^{1.1}$. This is also root dominated so $S_c(n) = O(n^{1.1})$
 
+Summary of Algorithms:
+| Algorithm | Work Complexity | Span Complexity |
+| :--- | :--- | :--- |
+| $\mathcal{A}$ | $\Theta(n^2)$ | $\Theta(n^2)$ |
+| $\mathcal{B}$ | $\Theta(n \log n)$ | $\Theta(n \log n)$ |
+| $\mathcal{C}$ | $\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
+
 I would choose alogrithm $\mathcal{B}$ as its work and span are both polylogarithmic functions and will be asymptotically dominated by the polynomial work and span functions of algorithms $\mathcal{A}$ and $\mathcal{B}$. Work is more important than span overall, but from both work and span perspectives, algorithm $\mathcal{B}$ is superior.
 
 . 

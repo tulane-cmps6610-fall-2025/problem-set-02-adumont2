@@ -338,6 +338,36 @@ I would choose alogrithm $\mathcal{B}$ as its work and span are both polylogarit
     assume that it is the same as the work to combine solutions (i.e.,
     the non-recursive quantity). Which algorithm would you choose? Why?
 
+Algorithm $\mathcal{A}$:
+
+$W_A(n) = 5W_A(n/2) + n$
+
+$C_(root) = n$
+
+$C_(level1) = 5 \cdot (n/2) = 5/2n$
+
+Therefore, this is a leaf-dominated recurrence. Number of leaves is $n^{log_25}$.
+
+Therefore, $W_A(n) = O(n^{log_25})$
+
+Span: Take length of longest subproblem = n/5. $S_A(n) = S_A(n/2) + n
+
+$C_(root) = n$
+
+$C_(level1) = 1 \cdot (n/2) = n/2$
+
+Therefore, this is root dominated and $S_A(n) = O(n)$
+
+. 
+.
+
+Algorithm $\mathcal{B}$:
+
+$W_B(n) = 2W_B(n-1) + c
+
+Algorithm $\mathcal{C}$:
+
+$W_C(n) = 9W_C(n/3) + c(n^2)$
 .  
 .  
 .  

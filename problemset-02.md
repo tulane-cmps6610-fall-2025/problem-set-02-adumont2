@@ -79,24 +79,51 @@ We divide both sides by 2: $\frac{1}{2}log(n) \ge log(2)$
 We can now substitute back into $(\frac{n}{2})\cdot log(n) - (\frac{n}{2})\cdot log(2) \ge (\frac{n}{2})log(n) - (\frac{n}{2})((\frac{1}{2})log(n))$ = $(\frac{n}{4})log(n)$ = $(\frac{1}{4})n \cdot log(n)$
 
 Therefore we have shown that $log(n!) \ge (\frac{1}{4})n \cdot log(n)$ with $c=\frac{1}{4}$ and $n_0 = 4$.
+
  
 2. Derive asymptotic upper bounds for each recurrence below, using a
    method of your choice.
    
   * $T(n)=2T(n/6)+1$
+
+  $C_(root) = 1$
+
+  $C_(level1) = 2 \cdot 1$ = 2 [2 subproblems at cost of 1 each]
+
+  Therefore, this is leaf dominated and cost is upper bounded by the number of leaves at unit cost 1.
+
+  #leaves = c
+
+  Therefore, **$T(n) = O(n^{(log_62)})$**
+
+. 
 .  
-.  
-.  
-.  
-.  
+
   * $T(n)=6T(n/4)+n$
-.  
-.  
-.  
-.  
-.  
+$C_(root) = n$
+
+$C_(level1) = 6 \cdot f(\frac{n}{4}) = 6 \cdot n/4$ = $\frac{3}{2}n$
+
+Therefore this is leaf dominated and cost is upper bounded by the number of leaves.
+
+#leaves = $a^{log_b(n))} = n^{(log_b(a))} = n^{(log_46)}$
+
+Therefore, **$T(n) = O(n^{log_46})$**
+ 
+. 
+. 
+
   * $T(n)=7T(n/7)+n$
-.  
+
+$C_(root) = n$
+
+$C_(level1) = 7(\frac{n}{7}) = n$
+
+Cost is same at each level, therefore this is balanced.
+
+Depth = $log_bn = log_7n$. Average cost per level is $n$.
+Total cost = depth * average cost per level = $log_7n$ * $n$.
+Therefore, $T(n) = O($nlog_7n$)
 .  
 .  
 .  

@@ -182,17 +182,46 @@ Therefore, **$T(n) = O(n)$**
 .
 
   * $T(n)= T(n-1)+n^c$, with $c\geq 1$
-.  
-.  
-.  
-.  
-.  
+
+$C_(root) = n^c$
+
+$C_(level1) = (n-1)^c$
+
+The work at each level is quite consistent, on the order of $O(n^c)$.
+
+The number of levels or depth: The problem goes from $n$ to $n-1$ ... $1$ so there are n levels.
+
+So the total Cost, $C$, = $O(n^c \cdot n^1)$ = **$O(n^{c+1})$**
+
+. 
+.
+
   * $T(n)=T(\sqrt{n})+1$
-.  
-.  
-.  
-.  
-.  
+
+$C_(root) = 1
+
+$C_(level1) = 1
+
+Therefore this recurrence is balanced with a work of 1 at each level.
+
+The problem size goes from $n$ to $n^{\frac{1}{2}}$ to $n^{\frac{1}{4}}$...So that at any general level k, the problem size is $n^{\frac{1}{2^k}}$. The recursion stops when the problem size is reduced to a base case, for example 2. We need to find the depth where this occurs.
+
+$n^{\frac{1}{2^k}} = 2$. We can then take $log_2$ of both sides.
+
+$log_2n^{\frac{1}{2^k}} = log_22$
+
+${\frac{1}{2^k}}log_2(n) = 1$
+
+$2^k = log_2(n)$. We need to solve for k so take log_2 of both sides.
+
+$k = log_2log_2(n)$
+
+Now total work is the sum of the work at all levels. Cost at each level is 1 and number of levels = $k$.
+
+Therefore $T(n)=T(\sqrt{n})+1 = O(1 \cdot log_2log_2(n)) = O(log_2log_2(n))$
+
+. 
+.
 
 
 3. Suppose that for a given task you are choosing between the following three algorithms:

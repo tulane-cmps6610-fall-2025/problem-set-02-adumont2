@@ -244,11 +244,73 @@ Therefore $T(n)=T(\sqrt{n})+1 = O(1 \cdot log_2log_2(n)) = O(log_2log_2(n))$
     (i.e. the non-recursive quantity).
     Which algorithm would you choose? Why?
 
-.  
-.  
-.  
-.  
-.  
+Algorithm $\mathcal{A}$:
+
+$W_A(n) = 2W_A(n/5) + n^2$
+
+$C_(root) = n^2$
+
+$C_(level1) = 2(n/5)^2 = \frac{2}{25} \cdot n^2$
+
+Therefore this is root dominated. $W_A(n) = O(n^2)$
+
+Span: The recursive calls can be run in parallel, so we can account for the longest one plus the time to combine:
+
+$S_A(n) = S_A(n/5) + O(n^2)$
+
+$C_(root) = n^2$
+
+$C_(level1) = (n/5)^2 = \frac{1}{25} \cdot n^2$
+
+Therefore this is root dominated. $S_A(n) = O(n^2)$
+
+. 
+.
+
+Algorithm $\mathcal{B}$:
+
+$W_B(n) = W_B(n-1) + logn$
+
+$C_(root) = logn$
+
+$C_(level1) = log(n-1)$
+
+The work is not geometrically changing and this is therfore a balanced recurrence.
+
+There are $n$ levels ($n$ to $n-1$ ... $1$) with a cost at each level on the order of $logn$.
+
+Therefore total work is: $W_B(n) = O(nlogn)$
+
+Span: For the recursive calls, there is only one subproblem ($S_B(n-1)$) so nothing to run in parallel. So the work and span should be the same.
+
+$S_B(n) = S_B(n-1) + logn$
+
+$S_B(n) = O(nlogn)$
+
+. 
+.
+
+Algorithm $\mathcal{C}$:
+
+$W_C(n) = W_C(n/3) + W_C(2n/3) + n^{1.1}$
+
+$C_(root) = n^{1.1}$
+
+$C_(level1) = (n/3)^{1.1} + (2n/3)^{1.1}$
+
+It appears that the work is geometrically decreasing (level one would be 0.897 the size of the root for example).
+
+Therefore the work is asymptotically equivalent to the work of the root: $W_C(n) = O(n^{1.1})$.
+
+Span: The two subproblems will run in parallel but the longest path will be determined by the $(2n/3)$ subproblem.
+
+Hence: $S_C(n) = S_c(2n/3) + n^{1.1}$. This is also root dominated so $S_c(n) = O(n^{1.1})$
+
+I would choose alogrithm $\mathcal{B}$ as its work and span are both polylogarithmic functions and will be asymptotically dominated by the polynomial work and span functions of algorithms $\mathcal{A}$ and $\mathcal{B}$. Work is more important than span overall, but from both work and span perspectives, algorithm $\mathcal{B}$ is superior.
+
+. 
+.
+
 
 4. Suppose that for a given task you are choosing between the following three algorithms:
 

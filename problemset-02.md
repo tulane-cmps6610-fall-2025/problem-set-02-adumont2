@@ -80,6 +80,8 @@ We can now substitute back into $(\frac{n}{2})\cdot log(n) - (\frac{n}{2})\cdot 
 
 Therefore we have shown that $log(n!) \ge (\frac{1}{4})n \cdot log(n)$ with $c=\frac{1}{4}$ and $n_0 = 4$.
 
+. 
+. 
  
 2. Derive asymptotic upper bounds for each recurrence below, using a
    method of your choice.
@@ -124,34 +126,61 @@ Cost is same at each level, therefore this is balanced.
 Depth = $log_bn = log_7n$. Average cost per level is $n$.
 Total cost = depth * average cost per level = $log_7n$ * $n$.
 Therefore, $T(n) = O($nlog_7n$)
-.  
-.  
-.  
-.  
+
+. 
+. 
+
   * $T(n)=9T(n/4)+n^2$
-.  
-.  
-.  
-.  
-.  
+
+  $C_(root) = n^2$
+
+  $C_(level 1) = 9(\frac{n}{4})^2 = \frac {9}{16}n^2$ [cost decreased by factor of 9/16]
+
+  Therefore, this is root dominated. **$T(n) = O(n^2)$**
+
+. 
+. 
+
   * $T(n)=4T(n/2)+n^3$
-.  
-.  
-.  
-.  
-.  
+
+  $C(root) = n^3$
+
+  $C(level1) = 4 \cdot (\frac{n}{2}^3) = \frac{4}{8} n^3 = \frac{1}{2}n^3$ [cost decreased by a factor of 1/2]
+
+  Therefore, this is root dominated. **$T(n) = O(n^3)$**
+
+. 
+. 
+
   * $T(n)=49T(n/25)+n^{3/2}\log n$
-.  
-.  
-.  
-.  
-.  
+
+$C_(root) = n^{3/2}\log n$
+$C_(level1) = 49 \cdot (\frac{n}{25}^{3/2} \cdot log(\frac{n}{25})) = \frac{49}{125} \cdot n^{3/2} \cdot (logn - log25))$ [This is less geometrically less than the root]
+
+Therefore this is root-dominated. **$T(n) = O(n^{3/2}\log n)$
+
+. 
+.
+
   * $T(n)=T(n-1)+2$
-.  
-.  
-.  
-.  
-.  
+
+This is not a "divde and conquer" recurrence, so the tree is a single long branch.
+
+$C_(root) = 2$
+
+$C_(level1) = 2$
+
+This is a balanced recurrence.
+
+The problem size decreases by 1 each step. $n, n-1, n-2, ... , 1$. Therefore the total number of calls (bricks) is n.
+
+The cost per level is 2. Total cost = $2n + C$ where $C$ is the constant cost of each base case.
+
+Therefore, **$T(n) = O(n)$**
+
+. 
+.
+
   * $T(n)= T(n-1)+n^c$, with $c\geq 1$
 .  
 .  

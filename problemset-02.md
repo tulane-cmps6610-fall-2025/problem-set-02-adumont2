@@ -363,7 +363,16 @@ Therefore, this is root dominated and $S_A(n) = O(n)$
 
 Algorithm $\mathcal{B}$:
 
-$W_B(n) = 2W_B(n-1) + c
+$W_B(n) = 2W_B(n-1) + 1
+
+$Cost_(root) = 1$
+
+$Cost_(level1) = 2c$
+
+Therefore, this recurrence is leaf dominated. The number of leaves is
+
+. 
+.
 
 Algorithm $\mathcal{C}$:
 

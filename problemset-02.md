@@ -39,7 +39,7 @@ $$
 $$
 Note: The summation below is the same as adding $log(n)$ to itself $n$ times and hence = $nlogn$
 $$
-\sum_{i=1}^{n} log(n) = n*logn
+\sum_{i=1}^{n} log(n) = n\cdot logn
 $$
 
 Therefore we have: $log(n!) \le nlogn$. This fits the definition of Big-O with $c=1$ and $n_0=1$ which therefore proves $log(n!) \in O(nlogn)$.
@@ -49,7 +49,7 @@ Therefore we have: $log(n!) \le nlogn$. This fits the definition of Big-O with $
 We must prove $log(n!) \ge c * nlogn$ for some constant $c > 0$ and for all $n \ge n_0$.
 
 $$
-log(n!) = \sum_{i=1}^{n} log(i) = log(1) + ... +log(n/2) +...+ log(n)
+log(n!) = \sum_{i=1}^{n} log(i) = log(1) + ... +log(\frac{n}{4}) +...+ log(n)
 $$
 
 The first half of the terms (from $i=1$ to $i=n/2$) is smaller than the second half. To find the lower bound, we can ignore the first half of the terms.
@@ -58,15 +58,15 @@ $$
 \sum_{i=1}^{n} log(i) \ge \sum_{i=n/2}^{n} log(n)
 $$
 
-The smallest value on the right will be $log(n/2)$.
+The smallest value on the right will be $log(\frac{n}{2})$.
 
-$log(i) \ge log(n/2)$ for all $i$ from $n/2$ to $n$.
+$log(i) \ge log(\frac{n}{2})$ for all $i$ from $\frac{n}{2}$ to $n$.
 
-Moreover, the the number of terms in the sum from $i=n/2$ to $n$ is ($n-n/2$) + $1$ = $n/2 + 1$ which is greater than $n/2$.
+Moreover, the the number of terms in the sum from $i=\frac{n}{2}$ to $n$ is ($n-\frac{n}{2}$) + $1$ = $\frac{n}{2} + 1$ which is greater than $\frac{n}{2}$.
 
-We can use the above now such that the smallest value is $log(n/2)$ and there are at least $n/2$ terms:
+We can use the above now such that the smallest value is $log(\frac{n}{2})$ and there are at least $\frac{n}{2}$ terms:
 $$
-\sum_{i=1}^{n} log(i) \ge \sum_{i=n/2}^{n} log(n) \ge n/2 *log(n/2) = n/2(log(n) - log(2)) = n/2*log(n) - n/2*log(2)
+\sum_{i=1}^{n} log(i) \ge \sum_{i=n/2}^{n} log(n) \ge n/2 *log(\frac{n}{2}) = \frac{n}{2}(log(n) - log(2)) = \frac{n}{2}\cdot log(n) - \frac{n}{2}\cdot log(2)
 $$
 
 $log(n!) \ge c * nlogn$ for some constant $c > 0$ and for all $n \ge n_0$.
@@ -74,11 +74,11 @@ $log(n!) \ge c * nlogn$ for some constant $c > 0$ and for all $n \ge n_0$.
 If we set $n \ge 4$ and take the log of both sides:
 $log(n) \ge log(4) = 2log(2)$
 
-We divide both sides by 2: $1/2log(n) \ge log(2)$
+We divide both sides by 2: $\frac{1}{2}log(n) \ge log(2)$
 
-We can now substitute back into $(n/2)*log(n) - (n/2)*log(2) \ge (n/2)log(n) - (n/2)((1/2)log(n))$ = $(n/4)log(n)$ = $(1/4)n*log(n)$
+We can now substitute back into $(\frac{n}{2})\cdot log(n) - (\frac{n}{2})\cdot log(2) \ge (\frac{n}{2})log(n) - (\frac{n}{2})((\frac{1}{2})log(n))$ = $(\frac{n}{4})log(n)$ = $(\frac{1}{4})n \cdot log(n)$
 
-Therefore we have shown that $log(n!) \ge (1/4)nlog(n)$ with $c=1/4$ and $n_0 = 4$.
+Therefore we have shown that $log(n!) \ge (\frac{1}{4})n \cdot log(n)$ with $c=\frac{1}{4}$ and $n_0 = 4$.
  
 2. Derive asymptotic upper bounds for each recurrence below, using a
    method of your choice.

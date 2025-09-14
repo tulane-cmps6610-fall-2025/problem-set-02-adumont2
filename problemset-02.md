@@ -489,6 +489,28 @@ $B$ then there are several possible outcomes:
 
 *6a.* Show that if more than $n/2$ students are black hats, you cannot determine which students are white hats based on a pairwise test. Note that you must assume the black hats are conspiring to fool you.
 
+**Goal**: Show that if more than $n/2$ students are black hats, the instructor cannot reliably identify the white hats.
+
+Let $w$ be the number of white hats and $b$ be the number of black hats, where $w + b = n$. The condition stipulates that $b > n/2$, which also implies that $b > w$.
+
+To prove it is impossible to identify the white hats, we can demonstrate that there are at least two possible configurations of students that can produce the exact same interview results, making them indistinguishable.
+
+Scenario 1: The Real World. There is a group $W$ contining $w$ white hats. There is a group $B$ containing $b$ black hats.
+
+Scenario 2: The Conspiracy. All $n$ students are black hats. Since $b > w$, they can form a subgroup of $w$ black hats (we will call $B_(conspire)$) to perfectly mimic the behavior of the real white hats. The other $b-w$ black hats are in the other group (we will call $B_(other)$).
+
+Here is how the black hats in Scenario $2$ can conspire to produce answers that are identical to those from Scenario $1$:
+1. If you interview 2 students from $B_(conspire)$: They will lie and say each other is a "white hat". This is indistinguishable from interviewing two real white hats from group $W$.
+
+2. If you interview a student from $B_(conspire)$ and a student from $B_(other)$: The student from $B_(conspire)$ will say the other is a "black hat" (which is true in this case). This is indistinguishable from a real white hat indentifying a real black hat.
+
+3. If you interview two students from $B_(cother)$: They can say whatever they want, just as real black hats could in Scenario 1.
+
+The group of conspirators ($B_(conspire)$) can perfectly mimic the behavior and interview responses of a true group of white hats ($W$), there is not set of questions you can ask to tell Scenario 1 and 2 apart. Since you cannot distinguish between $w$ white hats and $w$ black hats that are just pretending, **you therefore cannot guarantee the identification of white hats when black hats are in the majority.**
+
+. 
+.
+
 
 *6b.* Consider the problem of finding a single white hat, assuming strictly more than $n/2$ of the students are white hats. Show that $n/2$ pairwise interviews is enough to reduce the problem size by a constant fraction. 
 

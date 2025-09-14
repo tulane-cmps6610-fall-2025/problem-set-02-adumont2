@@ -66,7 +66,7 @@ Moreover, the the number of terms in the sum from $i=\frac{n}{2}$ to $n$ is ($n-
 
 We can use the above now such that the smallest value is $log(\frac{n}{2})$ and there are at least $\frac{n}{2}$ terms:
 $$
-\sum_{i=1}^{n} log(i) \ge \sum_{i=n/2}^{n} log(n) \ge n/2 *log(\frac{n}{2}) = \frac{n}{2}(log(n) - log(2)) = \frac{n}{2}\cdot log(n) - \frac{n}{2}\cdot log(2)
+v \ge \sum_{i=n/2}^{n} log(n) \ge n/2 *log(\frac{n}{2}) = \frac{n}{2}(log(n) - log(2)) = \frac{n}{2}\cdot log(n) - \frac{n}{2}\cdot log(2)
 $$
 
 $log(n!) \ge c * nlogn$ for some constant $c > 0$ and for all $n \ge n_0$.
@@ -125,7 +125,7 @@ Cost is same at each level, therefore this is balanced.
 
 Depth = $log_bn = log_7n$. Average cost per level is $n$.
 Total cost = depth * average cost per level = $log_7n$ * $n$.
-Therefore, $T(n) = O($nlog_7n$)
+Therefore, $T(n) = O($nlog_7n)$
 
 . 
 . 
@@ -369,7 +369,23 @@ $Cost_(root) = 1$
 
 $Cost_(level1) = 2c$
 
-Therefore, this recurrence is leaf dominated. The number of leaves is
+Therefore, this recurrence is leaf dominated. There are $n$ levels. The number of leaves per level is $2^i$. So we need to sum the work from all levels (from k=0 to the last level of k=n-1).
+
+ Therefore, $\sum_{k=0}^{n-1} 2^k$. We can use or geometric series bounds. $\alpha$ = 2, $\alpha > 1$. 
+ 
+ $\sum_{k=0}^{n} \alpha^k = \frac{\alpha}{\alpha-1} \cdot \alpha^n$. Therefore, = $2 \cdot 2^{n-1}$ = $2^n$.
+
+ **$W_B(n) = O(2^n)$**
+
+ Span: S_B(n) = S_B(n-1) + 1
+
+$Cost_(root) = 1$
+
+$Cost_(level1) = 1$
+
+There are n levels with constant cost per level.
+
+Therefore, **$S_B(n) = O(n)$
 
 . 
 .
@@ -377,11 +393,35 @@ Therefore, this recurrence is leaf dominated. The number of leaves is
 Algorithm $\mathcal{C}$:
 
 $W_C(n) = 9W_C(n/3) + c(n^2)$
-.  
-.  
-.  
-.  
-.  
+
+$Cost_(root) = c(n^2)$
+
+$Cost_(level1) = 9 \cdot c(n/3)^2 = c \cdot \frac{9}{9}n^2 = c(n^2)$
+
+Therefore, this is balanced. Work per level is $c(n^2)$. Number of levels is $(log_3n)$.
+
+**$W_C(n) = O(n^2 \cdot logn)$**
+
+Span: $S_C(n) = S_C(n/3) + c(n^2)$  
+
+$Cost_(root) = c(n^2)$
+
+$Cost_(level1) = c(n/3)^2 = c \cdot \frac{1}{9}n^2$. The cost is geometrically decreasing, therefore this recurrence is root dominated.
+
+$S_C(n) = O(n^2)$
+
+Here is a summary table:
+
+| Algorithm | Work Complexity | Span Complexity |
+| :--- | :--- | :--- |
+| $\mathcal{A}$ | $\Theta(n^{\log_2 5})$ | $\Theta(n)$ |
+| $\mathcal{B}$ | $\Theta(2^n)$ | $\Theta(n)$ |
+| $\mathcal{C}$ | $\Theta(n^2 \log n)$ | $\Theta(n^2)$ |
+
+Work is generally more important than span. We can rule out algorithm B as it does exponential work. Now we have algorithms with polynomial complexity. The work between A and C is similar although for very large n, the work of C is lower (A has ~ $n^{2.32}$ versus C which has $n^2 \cdot logn$). Algorithm A has much better span (more parallelism) so assuming infinite processors A may be the better choice. If work is the primary consideration, and we do not have infinite processors, C would be the better choice.
+
+. 
+.
 
 
 5. In Module 2 we discussed two algoriths for integer multiplication. The

@@ -424,7 +424,7 @@ Work is generally more important than span. We can rule out algorithm B as it do
 .
 
 
-5. In Module 2 we discussed two algoriths for integer multiplication. The
+5. In Module 2 we discussed two algorithms for integer multiplication. The
   first algorithm was simply a recapitulation of the "grade school"
   algorithm for integer multiplication, while the second was the
   Karatsaba-Ofman algorithm. For this problem, you will use the stub

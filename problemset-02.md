@@ -514,6 +514,28 @@ The group of conspirators ($B_(conspire)$) can perfectly mimic the behavior and 
 
 *6b.* Consider the problem of finding a single white hat, assuming strictly more than $n/2$ of the students are white hats. Show that $n/2$ pairwise interviews is enough to reduce the problem size by a constant fraction. 
 
+We are given this table which is helpful:
+
+|$A$ says | $B$ says | Conclusion |
+|---------|----------|------------|
+|$B$ is a white hat | $A$ is a white hat | both are good, or both are bad |
+|$B$ is a white hat | $A$ is a black hat | at least one is bad |
+|$B$ is a black hat | $A$ is a white hat | at least one is bad |
+|$B$ is a black hat | $A$ is a black hat | at least one is bad |
+
+**Approach**: We can use a "pairwise elimination" strategy as follows:
+
+1. We can pair the students arbitrarily into ($n/2$) pairs and leave one unpaired if $n$ is an odd number of students.
+
+2. For each pair ($A, B$), ask $A$ about $B$ and $B$ about $A$ with the results as shown in the table above.
+
+3. If both say the other is a white hat, keep one (will say $A$) as a candidate. In this scenario both are good or both or bad as per the table.
+
+4. In all other cases, discard both $A$ and $B$. This ensures at least one bad student is discarded as shown in the table.
+
+5. Keep the leftover student (if any) as a candidate.
+
+**Justification**: This process uses ($n/2$) pairwise interviews and reduces the number of candidates to at most ($n/2$). We have successfully reduced the problem size by a constant fraction. Also, the new group of candidates is guaranteed to contain at least one white hat. If the new group had zero white hats, it would imply that every original white hat was paired with a black hat - which is impossible given the constraints of the problem where white hats are the majority (strictly > ($n/2$) or $w > b$). Therefore, we are left with a smaller, valid subproblem with each iteration.
 
 *6c.* Using the above show that all white hats can be identified using $\Theta(n)$ pairwise interviews.
 

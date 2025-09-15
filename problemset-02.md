@@ -539,3 +539,11 @@ We are given this table which is helpful:
 
 *6c.* Using the above show that all white hats can be identified using $\Theta(n)$ pairwise interviews.
 
+The overall strategy is to first find one guaranteed white hat in linear time, and then use that person to identify everyone else also in linear time (white hats will always tell the truth).
+
+Part 1: Identify the one guaranteed white hat. We will recursively use the reduce algorithm outlined in 6b. We will start with the initial group of $n$ students, $S_0$. We will then create a new group, $S_1$ with the algorithm with size ~ $(n/2)$. We will create a new group, $S_2$, by applying the algorithm on $S_1$ with size of $S_2$ ~ $(n/4)$. We continue this process until only one candidate is left, $C$. The final candidate will be a white hat (proof above in 6b).
+
+Interviews = [$n/2$] + [$n/4$] + [$n/8$] + ... + 1. This is a geometric series whose sum will always be less than n. So finding our candidate costs $O(n)$ interviews.
+
+
+

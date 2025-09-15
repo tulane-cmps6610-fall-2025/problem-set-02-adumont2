@@ -545,5 +545,22 @@ Part 1: Identify the one guaranteed white hat. We will recursively use the reduc
 
 Interviews = [$n/2$] + [$n/4$] + [$n/8$] + ... + 1. This is a geometric series whose sum will always be less than n. So finding our candidate costs $O(n)$ interviews.
 
+We can also look at this from the perspective of a recurrence and use the brick method. At each step, we perform ($n/2$) interviews and then make one recursive call on a problem of a most size ($n/2$). We can write this recurrence as:
+
+$I(n) = I(n/2) - c \cdot n$
+
+This is root dominated where work is decreasing geometrically by a factor of 2, so $O(n)$.
+
+Part 1b: Verify the candidate. While we proved $C$ must be a white hat above, we can formally verify that $C$ is a white hat to be certain. We can take the candidate $C$ and ask every other student in the original group of n about them. We can count how many students claim "$C$ is a white hat". If the count is greater than $n/2$, $C$ is certified to be a white hat. If $C$ is a white hat, all $w$ white hats (where $w > n/2$) will truthfully say $C$ is a white hat, guaranteeing the count is > $n/2$. If $C$ were a black hat, the $w$ white hats would truthfully say $C$ is a black hat. Only the $b$ black hats could possibly lie but they are a minority. This verification step costs $n-1$ interviews. Combining both steps to find one certified white hat is $O(n)$ + $O(n)$ which is still $O(n)$.
+
+Part 2 - Find all other white hats. Now that we have one certified white hat, $W_(cert)$, we can use this white hat as an oracle. For each of the other $n-1$ students we can ask the one verified white hat to identify them and they will always be truthful. This stage costs exactly $n-1$ interviews which is $O(n)$.
+
+Total complexity:
+
+Upper bound: The total number of interviews is the sum of the costs from Part 1 and 2 above which is $O(n)$ + $O(n)$ which is still $O(n)$.
+
+Lower bound: To be certain of every student's identity, each student must be included in at least one interview (either as the interviewer or interviewee). Since each interview involves 2 students, one must perform at least $n/2$ interviews to gather information on everyone. Therefore, this problem must have a lower bound of $\Omega(n)$.
+
+Since the algorithm runs in $O(n)$ time, and the problem is lower bounded by $\Omega(n)$, the number of pairwise interviews required is $\theta(n)$.
 
 

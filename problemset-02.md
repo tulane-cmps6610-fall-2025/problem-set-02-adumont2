@@ -436,6 +436,7 @@ Work is generally more important than span. We can rule out algorithm B as it do
 
 Please see main.py for code implementation. Here is the output:
 `PS C:\Users\adumo\GitHub\problem-set-02-adumont2> python main.py`
+```
 All tests passed!
 Timing for n = 10...
 Timing for n = 100...
@@ -460,7 +461,7 @@ Comparison of Multiplication Algorithm Runtimes (in ms)
 |   10000000 |            inf     |                     0.087 |
 |  100000000 |            inf     |                     0.129 |
 | 1000000000 |            inf     |                     0.156 |
-
+```
 One can see that both algorithms work. However, the Karatsuba-Ofman (subquadtratic_multiply) algorithm is vastly more efficient and scalable for large numbers.
 
 . 

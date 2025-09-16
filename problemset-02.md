@@ -49,13 +49,13 @@ Therefore we have: $log(n!) \le nlogn$. This fits the definition of Big-O with $
 We must prove $log(n!) \ge c * nlogn$ for some constant $c > 0$ and for all $n \ge n_0$.
 
 $$
-log(n!) = \sum_{i=1}^{n} log(i) = log(1) + ... +log(\frac{n}{4}) +...+ log(n)
+log(n!) = \sum_{i=1}^{n} log(i) = log(1) + ... +log(\frac{n}{2}) +...+ log(n)
 $$
 
 The first half of the terms (from $i=1$ to $i=n/2$) is smaller than the second half. To find the lower bound, we can ignore the first half of the terms.
 
 $$
-\sum_{i=1}^{n} log(i) \ge \sum_{i=n/2}^{n} log(n)
+\sum_{i=1}^{n} log(i) \ge \sum_{i=n/2}^{n} log(i)
 $$
 
 The smallest value on the right will be $log(\frac{n}{2})$.
@@ -313,7 +313,7 @@ Summary of Algorithms:
 | $\mathcal{B}$ | $\Theta(n \log n)$ | $\Theta(n \log n)$ |
 | $\mathcal{C}$ | $\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
 
-I would choose alogrithm $\mathcal{B}$ as its work and span are both polylogarithmic functions and will be asymptotically dominated by the polynomial work and span functions of algorithms $\mathcal{A}$ and $\mathcal{B}$. Work is more important than span overall, but from both work and span perspectives, algorithm $\mathcal{B}$ is superior.
+I would choose alogrithm $\mathcal{B}$ as its work and span are both logarithmic functions and will be asymptotically dominated by the polynomial work and span functions of algorithms $\mathcal{A}$ and $\mathcal{C}$. Work is more important than span overall, but from both work and span perspectives, algorithm $\mathcal{B}$ is superior.
 
 . 
 .

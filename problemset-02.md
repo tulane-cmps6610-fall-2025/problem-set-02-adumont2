@@ -435,7 +435,7 @@ Work is generally more important than span. We can rule out algorithm B as it do
   asymptotic work.
 
 Please see main.py for code implementation. Here is the output:
-PS C:\Users\adumo\GitHub\problem-set-02-adumont2> python main.py
+`PS C:\Users\adumo\GitHub\problem-set-02-adumont2> python main.py`
 All tests passed!
 Timing for n = 10...
 Timing for n = 100...

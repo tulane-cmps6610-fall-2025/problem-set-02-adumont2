@@ -504,9 +504,9 @@ Here is how the black hats in Scenario $2$ can conspire to produce answers that 
 
 2. If you interview a student from $B_(conspire)$ and a student from $B_(other)$: The student from $B_(conspire)$ will say the other is a "black hat" (which is true in this case). This is indistinguishable from a real white hat indentifying a real black hat.
 
-3. If you interview two students from $B_(cother)$: They can say whatever they want, just as real black hats could in Scenario 1.
+3. If you interview two students from $B_(other)$: They can say whatever they want, just as real black hats could in Scenario 1.
 
-The group of conspirators ($B_(conspire)$) can perfectly mimic the behavior and interview responses of a true group of white hats ($W$), there is not set of questions you can ask to tell Scenario 1 and 2 apart. Since you cannot distinguish between $w$ white hats and $w$ black hats that are just pretending, **you therefore cannot guarantee the identification of white hats when black hats are in the majority.**
+The group of conspirators ($B_(conspire)$) can perfectly mimic the behavior and interview responses of a true group of white hats ($W$), so there is not set of questions you can ask to tell Scenario 1 and 2 apart. Since you cannot distinguish between $w$ white hats and $w$ black hats that are just pretending, **you therefore cannot guarantee the identification of white hats when black hats are in the majority.**
 
 . 
 .
@@ -547,7 +547,7 @@ Interviews = [$n/2$] + [$n/4$] + [$n/8$] + ... + 1. This is a geometric series w
 
 We can also look at this from the perspective of a recurrence and use the brick method. At each step, we perform ($n/2$) interviews and then make one recursive call on a problem of a most size ($n/2$). We can write this recurrence as:
 
-$I(n) = I(n/2) - c \cdot n$
+$I(n) = I(n/2) + c \cdot n$
 
 This is root dominated where work is decreasing geometrically by a factor of 2, so $O(n)$.
 

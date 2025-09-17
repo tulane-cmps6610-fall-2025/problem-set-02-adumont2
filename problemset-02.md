@@ -313,7 +313,7 @@ Summary of Algorithms:
 | $\mathcal{B}$ | $\Theta(n \log n)$ | $\Theta(n \log n)$ |
 | $\mathcal{C}$ | $\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
 
-I would choose alogrithm $\mathcal{B}$ as its work and span are both logarithmic functions and will be asymptotically dominated by the polynomial work and span functions of algorithms $\mathcal{A}$ and $\mathcal{C}$. Work is more important than span overall, but from both work and span perspectives, algorithm $\mathcal{B}$ is superior.
+I would choose alogrithm $\mathcal{B}$ as its work and span are both log-linear functions and will be asymptotically dominated by the polynomial work and span functions of algorithms $\mathcal{A}$ and $\mathcal{C}$. Work is more important than span overall, but from both work and span perspectives, algorithm $\mathcal{B}$ is superior.
 
 . 
 .
